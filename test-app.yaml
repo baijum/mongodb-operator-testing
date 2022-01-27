@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    environment: test
+spec:
+  selector:
+    matchLabels:
+      environment: test
+  template:
+    metadata:
+      labels:
+        environment: test
+    spec:
+      containers:
+      - name: "debian"
+        image: "quay.io/bmuthuka/debian-mongoshell:latest"
+        command: ["sleep"]
+        args: ["100h"]
